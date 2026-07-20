@@ -371,36 +371,6 @@
     }
 
     /* =========================================================
-   PLACEHOLDER MARKER
-========================================================= */
-    .todo {
-      position: relative;
-      border-bottom: 1.5px dashed var(--highlight);
-      cursor: help;
-    }
-
-    .todo::after {
-      content: '✎ placeholder — edit me';
-      position: absolute;
-      bottom: -1.3em;
-      left: 0;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      color: var(--highlight);
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: opacity .2s ease, transform .2s ease;
-      pointer-events: none;
-      letter-spacing: 0.02em;
-    }
-
-    .todo:hover::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================================================
    BACKGROUND CIRCUIT PATTERN
 ========================================================= */
     .circuit-bg {
@@ -1037,7 +1007,7 @@
     @media (max-width:900px) {
 
       .scroll-cue {
-        bottom: none;
+        display: none;
       }
 
     }
