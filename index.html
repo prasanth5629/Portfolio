@@ -2069,6 +2069,116 @@
       width: 18px;
       height: 18px;
     }
+
+    /* =========================================================
+   MOBILE POLISH
+   Extra refinements layered on top of the existing breakpoints
+   to tighten rhythm, improve tap targets, and stop iOS input-zoom.
+========================================================= */
+    @media (max-width:640px) {
+
+      /* iOS Safari zooms the page if a focused input/textarea has
+         font-size under 16px — this was the #1 mobile annoyance. */
+      .field input,
+      .field textarea {
+        font-size: 16px;
+      }
+
+      /* Tighter, calmer spacing rhythm on small screens */
+      .section-head {
+        margin-bottom: 36px;
+      }
+
+      .hero .container {
+        gap: 36px;
+      }
+
+      .about-grid {
+        gap: 28px;
+      }
+
+      .contact-grid {
+        gap: 30px;
+      }
+
+      /* Roomier cards without the desktop-sized padding */
+      .form-card,
+      .contact-info,
+      .edu-card,
+      .info-card {
+        padding: 24px;
+      }
+
+      /* CTA buttons: full-width and stacked for easy thumb taps */
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+      }
+
+      .hero-cta .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .hero-meta {
+        gap: 16px 22px;
+      }
+
+      /* Slightly smaller floating badge so it never crowds the edge */
+      .photo-badge {
+        padding: 10px 13px;
+        font-size: 0.72rem;
+        bottom: -14px;
+        right: -10px;
+      }
+
+      /* Certification cards: give icon+text room to breathe, keep the
+         external-link chip from overlapping the copy below it */
+      .cert-card {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .cert-link {
+        position: static;
+        margin-top: 14px;
+        align-self: flex-start;
+      }
+
+      /* Comfortable 44px minimum tap targets */
+      .theme-toggle,
+      .hamburger {
+        width: 44px;
+        height: 44px;
+      }
+
+      .mobile-menu a {
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width:400px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+      }
+
+      .form-card,
+      .contact-info,
+      .edu-card,
+      .info-card {
+        padding: 18px;
+      }
+
+      .send-btn {
+        padding: 14px 18px;
+      }
+    }
   </style>
 </head>
 
