@@ -3406,15 +3406,15 @@
 
     const cursorGlow = document.getElementById('cursorGlow');
 
-    if (cursorGlow && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    console.log('Cursor glow element:', cursorGlow);
 
-      window.addEventListener('mousemove', (e) => {
+    if (cursorGlow) {
+      document.addEventListener('mousemove', function (e) {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
 
-        cursorGlow.style.left = `${e.clientX}px`;
-        cursorGlow.style.top = `${e.clientY}px`;
-
+        console.log('Mouse:', e.clientX, e.clientY);
       });
-
     }
 
     /* ---------- Scroll progress bar ---------- */
