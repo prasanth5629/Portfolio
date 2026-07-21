@@ -244,18 +244,31 @@
       position: fixed;
       top: 0;
       left: 0;
+
       width: 420px;
       height: 420px;
+
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(60, 224, 211, 0.16), transparent 70%);
-      transform: translate(-50%, -50%);
+
+      background: radial-gradient(circle,
+          rgba(60, 224, 211, 0.16) 0%,
+          rgba(60, 224, 211, 0.08) 35%,
+          transparent 70%);
+
       pointer-events: none;
-      z-index: 2;
-      transition: opacity .3s ease;
+
+      z-index: 9999;
+
+      transform: translate(-50%, -50%);
+
       opacity: 0;
+
+      transition: opacity .3s ease;
+
+      will-change: transform;
     }
 
-    @media (hover:hover) and (pointer:fine) {
+    @media (hover: hover) and (pointer: fine) {
       .cursor-glow {
         opacity: 1;
       }
@@ -3390,11 +3403,18 @@
     typeLoop();
 
     /* ---------- Cursor glow (desktop only) ---------- */
+
     const cursorGlow = document.getElementById('cursorGlow');
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+
+    if (cursorGlow && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+
       window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+
+        cursorGlow.style.left = `${e.clientX}px`;
+        cursorGlow.style.top = `${e.clientY}px`;
+
       });
+
     }
 
     /* ---------- Scroll progress bar ---------- */
