@@ -241,38 +241,28 @@
     }
 
     .cursor-glow {
-      position: fixed;
-      top: 0;
-      left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
 
-      width: 420px;
-      height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(60, 224, 211, 0.25) 0%,
+    rgba(60, 224, 211, 0.10) 40%,
+    transparent 70%
+  );
 
-      border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
 
-      background: radial-gradient(circle,
-          rgba(60, 224, 211, 0.16) 0%,
-          rgba(60, 224, 211, 0.08) 35%,
-          transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 1;
 
-      pointer-events: none;
-
-      z-index: 9999;
-
-      transform: translate(-50%, -50%);
-
-      opacity: 0;
-
-      transition: opacity .3s ease;
-
-      will-change: transform;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .cursor-glow {
-        opacity: 1;
-      }
-    }
+  will-change: left, top;
+}
 
     .scroll-progress {
       position: fixed;
